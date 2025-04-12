@@ -1,13 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import Layout from '@/components/Layout';
+import Hero from '@/components/Hero';
+import Features from '@/components/Features';
+import HowItWorks from '@/components/HowItWorks';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout>
+      <Hero />
+      <Features />
+      <HowItWorks />
+      
+      <section className="py-16 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Your Car's Value?</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            Try our prediction tool now and get an accurate estimate of your car's price in the Indian market.
+          </p>
+          <Button size="lg" className="text-white" asChild>
+            <Link to="/predict">Predict Your Car Price</Link>
+          </Button>
+        </div>
+      </section>
+    </Layout>
   );
 };
 
