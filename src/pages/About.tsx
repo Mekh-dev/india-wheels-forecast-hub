@@ -5,7 +5,7 @@ import AboutModel from '@/components/AboutModel';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Car, Code, BarChart3, Users, Crown, BadgeIndianRupee } from 'lucide-react';
+import { Gem, Code, BarChart3, Users, Crown, BadgeIndianRupee } from 'lucide-react';
 
 const About = () => {
   return (
@@ -13,9 +13,9 @@ const About = () => {
       <div className="bg-gray-50 py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">About IndiaWheels</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">About Zehvraat</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're revolutionizing how car prices are predicted in the Indian market using advanced machine learning technology.
+              We're revolutionizing how jewelry prices are predicted in the Indian market using advanced machine learning technology.
             </p>
           </div>
         </div>
@@ -27,19 +27,19 @@ const About = () => {
             <div>
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-muted-foreground mb-4">
-                At IndiaWheels, we're committed to providing transparent, accurate car price predictions specifically tailored for the Indian automotive market. 
+                At Zehvraat, we're committed to providing transparent, accurate jewelry price predictions specifically tailored for the Indian jewelry market. 
               </p>
               <p className="text-muted-foreground mb-4">
-                Our platform leverages cutting-edge machine learning algorithms and comprehensive data analysis to help buyers and sellers make informed decisions about car values.
+                Our platform leverages cutting-edge machine learning algorithms and comprehensive data analysis to help buyers and sellers make informed decisions about jewelry values.
               </p>
               <p className="text-muted-foreground">
-                We understand the unique factors that influence car prices in India - from regional preferences to seasonal trends - and incorporate these variables into our prediction model.
+                We understand the unique factors that influence jewelry prices in India - from material intricacies to design complexities - and incorporate these variables into our prediction model.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <Card className="bg-primary/5 border-0">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                  <Car className="h-10 w-10 text-primary mb-3" />
+                  <Gem className="h-10 w-10 text-primary mb-3" />
                   <h3 className="font-semibold">Indian Market Focus</h3>
                 </CardContent>
               </Card>
@@ -75,14 +75,14 @@ const About = () => {
               <Crown className="h-12 w-12 mb-4" />
               <h3 className="text-xl font-bold mb-2">Premium Accuracy</h3>
               <p className="text-white/80">
-                Our prediction model achieves over 90% accuracy compared to actual selling prices.
+                Our prediction model achieves over 90% accuracy compared to actual jewelry values.
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6">
               <BadgeIndianRupee className="h-12 w-12 mb-4" />
               <h3 className="text-xl font-bold mb-2">India-Specific</h3>
               <p className="text-white/80">
-                Tailored specifically for the unique conditions of the Indian automotive market.
+                Tailored specifically for the unique conditions of the Indian jewelry market.
               </p>
             </div>
             <div className="flex flex-col items-center text-center p-6">
@@ -98,12 +98,12 @@ const About = () => {
 
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-3xl font-bold mb-4">Try IndiaWheels Today</h2>
+          <h2 className="text-3xl font-bold mb-4">Try Zehvraat Today</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Get started with our car price prediction tool and make data-driven decisions.
+            Get started with our jewelry price prediction tool and make data-driven decisions.
           </p>
           <Button size="lg" className="text-white" asChild>
-            <Link to="/predict">Predict Your Car Price</Link>
+            <Link to="/predict">Predict Your Jewelry Price</Link>
           </Button>
         </div>
       </section>
