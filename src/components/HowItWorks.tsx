@@ -5,14 +5,14 @@ import { FormInput, LineChart, IndianRupee } from 'lucide-react';
 const steps = [
   {
     number: "01",
-    title: "Enter Car Details",
-    description: "Provide information about the car including brand, model, year, fuel type, and other specifications.",
+    title: "Enter Jewelry Details",
+    description: "Provide information about your jewelry including material type, weight in grams, and design complexity.",
     icon: FormInput
   },
   {
     number: "02",
     title: "ML Analysis",
-    description: "Our advanced machine learning model analyzes your input against our comprehensive dataset of Indian cars.",
+    description: "Our advanced machine learning model analyzes your input against our comprehensive dataset of jewelry pieces.",
     icon: LineChart
   },
   {

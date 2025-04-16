@@ -8,55 +8,55 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 
 // Mock data for charts
 const trendData = [
-  { month: 'Jan', "SUV Price": 1200000, "Sedan Price": 950000, "Hatchback Price": 600000 },
-  { month: 'Feb', "SUV Price": 1250000, "Sedan Price": 920000, "Hatchback Price": 620000 },
-  { month: 'Mar', "SUV Price": 1280000, "Sedan Price": 900000, "Hatchback Price": 610000 },
-  { month: 'Apr', "SUV Price": 1320000, "Sedan Price": 930000, "Hatchback Price": 630000 },
-  { month: 'May', "SUV Price": 1350000, "Sedan Price": 940000, "Hatchback Price": 650000 },
-  { month: 'Jun', "SUV Price": 1370000, "Sedan Price": 960000, "Hatchback Price": 670000 },
-  { month: 'Jul', "SUV Price": 1400000, "Sedan Price": 980000, "Hatchback Price": 680000 },
-  { month: 'Aug', "SUV Price": 1420000, "Sedan Price": 1000000, "Hatchback Price": 690000 },
-  { month: 'Sep', "SUV Price": 1450000, "Sedan Price": 1020000, "Hatchback Price": 700000 },
+  { month: 'Jan', "Gold Price": 120000, "Silver Price": 25000, "Diamond Price": 350000 },
+  { month: 'Feb', "Gold Price": 125000, "Silver Price": 23000, "Diamond Price": 360000 },
+  { month: 'Mar', "Gold Price": 128000, "Silver Price": 24000, "Diamond Price": 365000 },
+  { month: 'Apr', "Gold Price": 132000, "Silver Price": 26000, "Diamond Price": 370000 },
+  { month: 'May', "Gold Price": 135000, "Silver Price": 27000, "Diamond Price": 375000 },
+  { month: 'Jun', "Gold Price": 137000, "Silver Price": 28000, "Diamond Price": 380000 },
+  { month: 'Jul', "Gold Price": 140000, "Silver Price": 29000, "Diamond Price": 385000 },
+  { month: 'Aug', "Gold Price": 142000, "Silver Price": 30000, "Diamond Price": 390000 },
+  { month: 'Sep', "Gold Price": 145000, "Silver Price": 31000, "Diamond Price": 395000 },
 ];
 
-const brandValueData = [
-  { name: 'Maruti Suzuki', value: 85 },
-  { name: 'Hyundai', value: 82 },
-  { name: 'Tata', value: 79 },
-  { name: 'Mahindra', value: 77 },
-  { name: 'Kia', value: 76 },
-  { name: 'Honda', value: 81 },
-  { name: 'Toyota', value: 84 },
-  { name: 'Volkswagen', value: 75 },
-  { name: 'MG', value: 72 },
+const materialValueData = [
+  { name: 'Gold', value: 92 },
+  { name: 'Silver', value: 78 },
+  { name: 'Platinum', value: 90 },
+  { name: 'Diamond', value: 95 },
+  { name: 'Ruby', value: 88 },
+  { name: 'Emerald', value: 89 },
+  { name: 'Crystal', value: 65 },
+  { name: 'Pearl', value: 82 },
+  { name: 'Sapphire', value: 87 },
 ];
 
-const fuelEffectData = [
-  { name: 'Petrol', "Depreciation": -25 },
-  { name: 'Diesel', "Depreciation": -30 },
-  { name: 'CNG', "Depreciation": -20 },
-  { name: 'Electric', "Depreciation": -15 },
-  { name: 'Hybrid', "Depreciation": -22 },
+const designEffectData = [
+  { name: 'Simple', "Price Multiplier": 1.0 },
+  { name: 'Moderate', "Price Multiplier": 1.5 },
+  { name: 'Intricate', "Price Multiplier": 2.0 },
+  { name: 'Very Intricate', "Price Multiplier": 2.5 },
+  { name: 'Custom', "Price Multiplier": 3.0 },
 ];
 
 // Mock prediction statistics
 const recentPredictions = [
-  { id: 1, car: "Maruti Suzuki Swift", year: 2020, prediction: 720000 },
-  { id: 2, car: "Hyundai Creta", year: 2019, prediction: 1050000 },
-  { id: 3, car: "Tata Nexon", year: 2021, prediction: 940000 },
-  { id: 4, car: "Mahindra XUV700", year: 2022, prediction: 1820000 },
-  { id: 5, car: "Honda City", year: 2018, prediction: 820000 },
+  { id: 1, jewelry: "Gold Necklace", weight: "12g", prediction: 72000 },
+  { id: 2, jewelry: "Silver Bracelet", weight: "18g", prediction: 8500 },
+  { id: 3, jewelry: "Diamond Ring", weight: "4g", prediction: 94000 },
+  { id: 4, jewelry: "Platinum Earrings", weight: "6g", prediction: 58000 },
+  { id: 5, jewelry: "Ruby Pendant", weight: "8g", prediction: 36000 },
 ];
 
-const popularModels = [
-  { name: "Maruti Suzuki Swift", predictions: 2345 },
-  { name: "Hyundai Creta", predictions: 2120 },
-  { name: "Tata Nexon", predictions: 1987 },
-  { name: "Maruti Suzuki Baleno", predictions: 1765 },
-  { name: "Hyundai i20", predictions: 1543 },
-  { name: "Kia Seltos", predictions: 1432 },
-  { name: "Mahindra Scorpio", predictions: 1321 },
-  { name: "Toyota Fortuner", predictions: 1210 },
+const popularMaterials = [
+  { name: "Gold", predictions: 2345 },
+  { name: "Silver", predictions: 2120 },
+  { name: "Diamond", predictions: 1987 },
+  { name: "Platinum", predictions: 1765 },
+  { name: "Ruby", predictions: 1543 },
+  { name: "Emerald", predictions: 1432 },
+  { name: "Crystal", predictions: 1321 },
+  { name: "Pearl", predictions: 1210 },
 ];
 
 const Predictions = () => {
@@ -69,7 +69,7 @@ const Predictions = () => {
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Market Insights & Predictions</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore trends, patterns and insights from our car price predictions across the Indian market.
+              Explore trends, patterns and insights from our jewelry price predictions across the Indian market.
             </p>
           </div>
         </div>
@@ -96,9 +96,9 @@ const Predictions = () => {
             <TabsContent value="trends">
               <Card>
                 <CardHeader>
-                  <CardTitle>Car Price Trends in India (2023)</CardTitle>
+                  <CardTitle>Jewelry Price Trends in India (2023)</CardTitle>
                   <CardDescription>
-                    Average price trends for different car categories in the Indian market over time
+                    Average price trends for different jewelry materials in the Indian market over time
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="h-[400px]">
@@ -109,9 +109,9 @@ const Predictions = () => {
                       <YAxis />
                       <Tooltip formatter={(value) => `₹${value.toLocaleString('en-IN')}`} />
                       <Legend />
-                      <Line type="monotone" dataKey="SUV Price" stroke="#3b82f6" activeDot={{ r: 8 }} />
-                      <Line type="monotone" dataKey="Sedan Price" stroke="#0ea5e9" activeDot={{ r: 8 }} />
-                      <Line type="monotone" dataKey="Hatchback Price" stroke="#0284c7" activeDot={{ r: 8 }} />
+                      <Line type="monotone" dataKey="Gold Price" stroke="#FFD700" activeDot={{ r: 8 }} />
+                      <Line type="monotone" dataKey="Silver Price" stroke="#C0C0C0" activeDot={{ r: 8 }} />
+                      <Line type="monotone" dataKey="Diamond Price" stroke="#3b82f6" activeDot={{ r: 8 }} />
                     </ComposedChart>
                   </ResponsiveContainer>
                 </CardContent>
@@ -122,17 +122,17 @@ const Predictions = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Brand Value Impact</CardTitle>
+                    <CardTitle>Material Value Impact</CardTitle>
                     <CardDescription>
-                      Brand reputation score and its effect on car resale values
+                      Material quality score and its effect on jewelry resale values
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <ComposedChart data={brandValueData}>
+                      <ComposedChart data={materialValueData}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis domain={[60, 90]} />
+                        <YAxis domain={[60, 100]} />
                         <Tooltip />
                         <Bar dataKey="value" fill="#3b82f6" />
                       </ComposedChart>
@@ -142,19 +142,19 @@ const Predictions = () => {
                 
                 <Card>
                   <CardHeader>
-                    <CardTitle>Fuel Type and Depreciation</CardTitle>
+                    <CardTitle>Design Complexity and Price</CardTitle>
                     <CardDescription>
-                      How different fuel types affect the depreciation rate of cars
+                      How different design complexities affect the price multiplier of jewelry
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <ComposedChart data={fuelEffectData}>
+                      <ComposedChart data={designEffectData}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis />
+                        <YAxis domain={[0, 3.5]} />
                         <Tooltip />
-                        <Bar dataKey="Depreciation" fill="#0ea5e9" />
+                        <Bar dataKey="Price Multiplier" fill="#0ea5e9" />
                       </ComposedChart>
                     </ResponsiveContainer>
                   </CardContent>
@@ -168,7 +168,7 @@ const Predictions = () => {
                   <CardHeader>
                     <CardTitle>Recent Price Predictions</CardTitle>
                     <CardDescription>
-                      Latest car price predictions from our system
+                      Latest jewelry price predictions from our system
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -176,8 +176,8 @@ const Predictions = () => {
                       {recentPredictions.map((item) => (
                         <div key={item.id} className="flex justify-between items-center border-b pb-3">
                           <div>
-                            <p className="font-medium">{item.car}</p>
-                            <p className="text-sm text-muted-foreground">{item.year}</p>
+                            <p className="font-medium">{item.jewelry}</p>
+                            <p className="text-sm text-muted-foreground">{item.weight}</p>
                           </div>
                           <p className="font-semibold">₹{item.prediction.toLocaleString('en-IN')}</p>
                         </div>
@@ -188,17 +188,17 @@ const Predictions = () => {
                 
                 <Card>
                   <CardHeader>
-                    <CardTitle>Most Popular Models</CardTitle>
+                    <CardTitle>Most Popular Materials</CardTitle>
                     <CardDescription>
-                      Car models with the highest number of price prediction requests
+                      Materials with the highest number of price prediction requests
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {popularModels.map((model, index) => (
+                      {popularMaterials.map((material, index) => (
                         <div key={index} className="flex justify-between items-center border-b pb-3">
-                          <p className="font-medium">{model.name}</p>
-                          <p className="text-sm text-muted-foreground">{model.predictions} predictions</p>
+                          <p className="font-medium">{material.name}</p>
+                          <p className="text-sm text-muted-foreground">{material.predictions} predictions</p>
                         </div>
                       ))}
                     </div>

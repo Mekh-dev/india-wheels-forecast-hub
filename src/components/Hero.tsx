@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, BarChart, Car, IndianRupee } from 'lucide-react';
+import { ArrowRight, BarChart, Gem, IndianRupee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -11,10 +11,10 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Predict Indian Car Prices with ML Precision
+              Predict Jewelry Prices with ML Precision
             </h1>
             <p className="text-lg md:text-xl opacity-90">
-              Get accurate price predictions based on real market data and advanced machine learning algorithms.
+              Get accurate price predictions for your jewelry based on real market data and advanced machine learning algorithms.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" variant="secondary" className="text-primary font-medium" asChild>
@@ -36,10 +36,10 @@ const Hero = () => {
             <div className="absolute z-10 bottom-5 left-5 bg-white/90 backdrop-blur-sm p-5 rounded-lg shadow-lg animate-float" style={{ animationDelay: "2s" }}>
               <BarChart className="h-8 w-8 text-primary mb-2" />
               <h3 className="text-black font-bold text-lg">Data-Driven</h3>
-              <p className="text-gray-600 text-sm">ML models trained on thousands of cars</p>
+              <p className="text-gray-600 text-sm">ML models trained on thousands of jewelry pieces</p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-2xl h-[400px] w-full border border-white/20 shadow-xl flex items-center justify-center">
-              <Car className="h-32 w-32 text-white/70" />
+              <Gem className="h-32 w-32 text-white/70" />
             </div>
           </div>
         </div>

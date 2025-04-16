@@ -1,22 +1,22 @@
 
 import React from 'react';
-import { Car, BarChart3, BadgeIndianRupee, Award, Database, TrendingUp } from 'lucide-react';
+import { Gem, BarChart3, BadgeIndianRupee, Award, Database, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const features = [
   {
     title: "Indian Market Expertise",
-    description: "Our model is specifically trained on the Indian automotive market, considering local factors and preferences.",
+    description: "Our model is specifically trained on the Indian jewelry market, considering local factors and preferences.",
     icon: BadgeIndianRupee
   },
   {
     title: "Comprehensive Analysis",
-    description: "We analyze multiple factors including brand value, features, condition, and market trends for accurate predictions.",
+    description: "We analyze multiple factors including material value, weight, design complexity, and market trends for accurate predictions.",
     icon: BarChart3
   },
   {
     title: "ML-Powered Forecasting",
-    description: "Leveraging advanced machine learning algorithms trained on thousands of real-world car listings.",
+    description: "Leveraging advanced machine learning algorithms trained on thousands of real-world jewelry listings.",
     icon: Database
   },
   {
@@ -25,9 +25,9 @@ const features = [
     icon: TrendingUp
   },
   {
-    title: "Make & Model Specific",
-    description: "Get tailored predictions for specific makes and models popular in the Indian automotive market.",
-    icon: Car
+    title: "Material & Design Specific",
+    description: "Get tailored predictions for specific materials and design complexities popular in the Indian jewelry market.",
+    icon: Gem
   },
   {
     title: "Trusted Methodology",
@@ -43,7 +43,7 @@ const Features = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Why Choose Our Prediction Platform?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our car price prediction model is specifically designed for the Indian market, using advanced ML techniques to deliver accurate valuations.
+            Our jewelry price prediction model is specifically designed for the Indian market, using advanced ML techniques to deliver accurate valuations.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
