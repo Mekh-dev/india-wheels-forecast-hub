@@ -16,12 +16,12 @@ const Index = () => {
       
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Your Car's Value?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Price Your Jewelry?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Try our prediction tool now and get an accurate estimate of your car's price in the Indian market.
+            Try our prediction tool now and get an accurate estimate of your jewelry's price based on material, weight, and design complexity.
           </p>
           <Button size="lg" className="text-white" asChild>
-            <Link to="/predict">Predict Your Car Price</Link>
+            <Link to="/predict">Predict Your Jewelry Price</Link>
           </Button>
         </div>
       </section>

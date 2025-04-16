@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Car } from 'lucide-react';
+import { Gem } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -9,8 +9,8 @@ const Navbar = () => {
     <nav className="border-b bg-white shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link to="/" className="flex items-center gap-2">
-          <Car className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold text-primary">IndiaWheels</span>
+          <Gem className="h-6 w-6 text-primary" />
+          <span className="text-xl font-bold text-primary">Zehvraat</span>
         </Link>
         <div className="flex items-center gap-4">
           <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground">
