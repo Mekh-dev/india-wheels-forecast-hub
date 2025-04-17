@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Car, Github, Mail } from 'lucide-react';
+import { Gem, Github, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,11 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2">
-              <Car className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold text-primary">IndiaWheels</span>
+              <Gem className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold text-primary">Zehvraat</span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Accurately predict the price of your car using our advanced machine learning model.
+              Accurately predict the price of your jewelry using our advanced machine learning model.
             </p>
           </div>
           <div>
@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 border-t pt-6">
           <p className="text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} IndiaWheels. All rights reserved.
+            © {new Date().getFullYear()} Zehvraat. All rights reserved.
           </p>
         </div>
       </div>
