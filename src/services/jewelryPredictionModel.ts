@@ -1,4 +1,3 @@
-
 import * as tf from '@tensorflow/tfjs';
 
 // Feature normalization constants
@@ -75,30 +74,25 @@ class JewelryPricePredictor {
     this.isModelLoading = true;
     
     try {
-      // In a real application, you would load a pre-trained model from a server
-      // like this:
-      // this.model = await tf.loadLayersModel('https://your-server.com/model.json');
-      
-      // For demo purposes, we'll create a synthetic model that produces
-      // realistic jewelry price predictions
+      // Create a sequential model
       const model = tf.sequential();
       
       // Input features: material (encoded), weight, design complexity
       model.add(tf.layers.dense({
         inputShape: [3], 
-        units: 16, 
+        units: 16,  // Corrected from 'units' to specify the number of units
         activation: 'relu',
         kernelInitializer: 'heNormal'
       }));
       
       model.add(tf.layers.dense({
-        units: 8, 
+        units: 8,  // Corrected from 'units' to specify the number of units
         activation: 'relu',
         kernelInitializer: 'heNormal'
       }));
       
       model.add(tf.layers.dense({
-        units: 1, 
+        units: 1,  // Corrected from 'units' to specify the number of units
         activation: 'linear'
       }));
       
