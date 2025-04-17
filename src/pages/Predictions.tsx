@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,15 +7,15 @@ import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 
 // Mock data for charts
 const trendData = [
-  { month: 'Jan', "Gold Price": 120000, "Silver Price": 25000, "Diamond Price": 350000 },
-  { month: 'Feb', "Gold Price": 125000, "Silver Price": 23000, "Diamond Price": 360000 },
-  { month: 'Mar', "Gold Price": 128000, "Silver Price": 24000, "Diamond Price": 365000 },
-  { month: 'Apr', "Gold Price": 132000, "Silver Price": 26000, "Diamond Price": 370000 },
-  { month: 'May', "Gold Price": 135000, "Silver Price": 27000, "Diamond Price": 375000 },
-  { month: 'Jun', "Gold Price": 137000, "Silver Price": 28000, "Diamond Price": 380000 },
-  { month: 'Jul', "Gold Price": 140000, "Silver Price": 29000, "Diamond Price": 385000 },
-  { month: 'Aug', "Gold Price": 142000, "Silver Price": 30000, "Diamond Price": 390000 },
-  { month: 'Sep', "Gold Price": 145000, "Silver Price": 31000, "Diamond Price": 395000 },
+  { month: 'Jan', "Gold Price": 148000, "Silver Price": 32000, "Diamond Price": 410000 },
+  { month: 'Feb', "Gold Price": 152000, "Silver Price": 30500, "Diamond Price": 425000 },
+  { month: 'Mar', "Gold Price": 155000, "Silver Price": 31200, "Diamond Price": 438000 },
+  { month: 'Apr', "Gold Price": 159000, "Silver Price": 33500, "Diamond Price": 445000 },
+  { month: 'May', "Gold Price": 163000, "Silver Price": 34800, "Diamond Price": 452000 },
+  { month: 'Jun', "Gold Price": 166000, "Silver Price": 35500, "Diamond Price": 460000 },
+  { month: 'Jul', "Gold Price": 170000, "Silver Price": 36200, "Diamond Price": 468000 },
+  { month: 'Aug', "Gold Price": 174000, "Silver Price": 37500, "Diamond Price": 475000 },
+  { month: 'Sep', "Gold Price": 178000, "Silver Price": 38200, "Diamond Price": 482000 },
 ];
 
 const materialValueData = [
@@ -39,7 +38,6 @@ const designEffectData = [
   { name: 'Custom', "Price Multiplier": 3.0 },
 ];
 
-// Mock prediction statistics
 const recentPredictions = [
   { id: 1, jewelry: "Gold Necklace", weight: "12g", prediction: 72000 },
   { id: 2, jewelry: "Silver Bracelet", weight: "18g", prediction: 8500 },
@@ -96,7 +94,7 @@ const Predictions = () => {
             <TabsContent value="trends">
               <Card>
                 <CardHeader>
-                  <CardTitle>Jewelry Price Trends in India (2023)</CardTitle>
+                  <CardTitle>Jewelry Price Trends in India (2025)</CardTitle>
                   <CardDescription>
                     Average price trends for different jewelry materials in the Indian market over time
                   </CardDescription>
