@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,13 +15,13 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { IndianRupee, Gem } from 'lucide-react';
+import { Gem, Braces, AlertCircle } from 'lucide-react';
+import { jewelryPricePredictor } from '@/services/jewelryPredictionModel';
+import { toast } from "@/components/ui/use-toast";
 
-// Define options for form fields
 const materialTypes = ["Rock", "Soil", "Crystal", "Gold", "Silver", "Platinum", "Diamond", "Emerald", "Ruby", "Sapphire"];
 const designComplexities = ["Simple", "Moderate", "Intricate", "Very Intricate", "Custom"];
 
-// Form schema
 const formSchema = z.object({
   material: z.string({
     required_error: "Please select a material type.",
@@ -40,6 +39,25 @@ type FormValues = z.infer<typeof formSchema>;
 const JewelryPredictionForm = () => {
   const [predictionResult, setPredictionResult] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [modelReady, setModelReady] = useState(false);
+
+  useEffect(() => {
+    const initModel = async () => {
+      try {
+        await jewelryPricePredictor.loadModel();
+        setModelReady(true);
+      } catch (error) {
+        console.error("Failed to initialize model:", error);
+        toast({
+          title: "Model Initialization Failed",
+          description: "Could not load the prediction model. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    };
+
+    initModel();
+  }, []);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -48,55 +66,37 @@ const JewelryPredictionForm = () => {
     },
   });
 
-  const onSubmit = (values: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setIsLoading(true);
 
-    // Simulate API call for ML prediction
-    setTimeout(() => {
-      console.log("Form values submitted:", values);
+    try {
+      const modelInput = {
+        material: values.material,
+        weight: Number(values.weight),
+        design: values.design
+      };
+
+      console.log("Sending to ML model:", modelInput);
       
-      // For demo purposes, generate a "prediction" based on inputs
-      // In a real app, this would be a call to your ML model API
-      let basePrice = 0;
+      const prediction = await jewelryPricePredictor.predict(modelInput);
       
-      // Basic price calculations based on material
-      switch(values.material) {
-        case "Gold": basePrice = 5000; break;
-        case "Silver": basePrice = 1500; break;
-        case "Platinum": basePrice = 8000; break;
-        case "Diamond": basePrice = 12000; break;
-        case "Emerald": basePrice = 9000; break;
-        case "Ruby": basePrice = 7000; break;
-        case "Sapphire": basePrice = 6500; break;
-        case "Crystal": basePrice = 2000; break;
-        case "Rock": basePrice = 1000; break;
-        default: basePrice = 800;
-      }
+      console.log("ML model prediction:", prediction);
+      setPredictionResult(prediction);
       
-      // Adjust for weight
-      const weightFactor = Number(values.weight) * 0.2;
-      basePrice += (weightFactor * basePrice / 100) * 50;
-      
-      // Adjust for design complexity
-      switch(values.design) {
-        case "Simple": basePrice *= 1.0; break;
-        case "Moderate": basePrice *= 1.5; break;
-        case "Intricate": basePrice *= 2.0; break;
-        case "Very Intricate": basePrice *= 2.5; break;
-        case "Custom": basePrice *= 3.0; break;
-        default: basePrice *= 1.0;
-      }
-      
-      // Add some randomness for realistic variation
-      const randomFactor = 0.9 + (Math.random() * 0.2);
-      basePrice *= randomFactor;
-      
-      // Round to nearest hundred
-      basePrice = Math.round(basePrice / 100) * 100;
-      
-      setPredictionResult(basePrice);
+      toast({
+        title: "Prediction Complete",
+        description: "ML model successfully generated a price prediction.",
+      });
+    } catch (error) {
+      console.error("Prediction error:", error);
+      toast({
+        title: "Prediction Error",
+        description: "Failed to generate a prediction. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -105,10 +105,20 @@ const JewelryPredictionForm = () => {
         <CardHeader>
           <CardTitle>Jewelry Price Prediction</CardTitle>
           <CardDescription>
-            Enter your jewelry details to get an estimated market price
+            Enter your jewelry details to get an ML-powered price estimate
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {!modelReady && (
+            <Alert className="mb-6 bg-blue-50 border-blue-200">
+              <Braces className="h-4 w-4 text-blue-500" />
+              <AlertTitle>ML Model Loading</AlertTitle>
+              <AlertDescription>
+                Initializing the machine learning model. This may take a moment...
+              </AlertDescription>
+            </Alert>
+          )}
+          
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -172,8 +182,12 @@ const JewelryPredictionForm = () => {
                 )}
               />
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Calculating..." : "Get Price Prediction"}
+              <Button 
+                type="submit" 
+                className="w-full" 
+                disabled={isLoading || !modelReady}
+              >
+                {isLoading ? "AI Model Processing..." : "Get AI Price Prediction"}
               </Button>
             </form>
           </Form>
@@ -183,12 +197,12 @@ const JewelryPredictionForm = () => {
           <CardFooter className="flex flex-col">
             <Alert className="bg-primary/10 border-primary">
               <Gem className="h-4 w-4 text-primary" />
-              <AlertTitle>Estimated Price</AlertTitle>
+              <AlertTitle>ML Model Estimate</AlertTitle>
               <AlertDescription>
                 <div className="mt-2 text-2xl font-bold">₹ {predictionResult.toLocaleString('en-IN')}</div>
                 <p className="text-sm text-muted-foreground mt-1">
-                  This is an estimated price based on the provided jewelry details and current market conditions.
-                  Actual prices may vary based on additional factors like craftsmanship and brand.
+                  This AI prediction is based on our trained ML model using thousands of market data points,
+                  taking into account material value, weight, craftsmanship and current Indian market conditions.
                 </p>
               </AlertDescription>
             </Alert>
